@@ -38,6 +38,9 @@
     .photo-tile:hover img{transform:scale(1.03)}
     #photographs .photo-tile{cursor:zoom-in}
     #photographs .photo-tile:hover img{opacity:.9}
+    @media (max-width:640px){
+      header#top{min-height:auto !important;justify-content:flex-start !important}
+    }
   </style>
 </helmet>
 <div ref="{{ rootRef }}" style="--accent-coffee:#b79d8a;--accent-coffee-ink:#6b5040;--accent:var(--accent-coffee);--accent-ink:var(--accent-coffee-ink);position:relative;overflow-x:hidden">
