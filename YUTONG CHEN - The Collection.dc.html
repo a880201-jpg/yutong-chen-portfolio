@@ -38,7 +38,17 @@
     .photo-tile:hover img{transform:scale(1.03)}
     #photographs .photo-tile{cursor:zoom-in}
     #photographs .photo-tile:hover img{opacity:.9}
-    @media (max-width:640px){
+    /* ---- responsive: tablet & phone ---- */
+    .essay-para{width:auto !important;max-width:100% !important;height:auto !important}
+    @media (max-width:900px){
+      .films-grid{grid-template-columns:1fr !important}
+      .essay-grid{grid-template-columns:1fr !important}
+      .photo-head{grid-template-columns:1fr !important}
+      .photo-head > *{grid-column:auto !important;min-width:0 !important}
+    }
+    @media (max-width:600px){
+      .film-credits{grid-template-columns:1fr !important}
+      nav[data-screen-label="Masthead"]{flex-direction:column !important;align-items:flex-start !important;gap:8px !important}
       header#top{min-height:auto !important;justify-content:flex-start !important}
     }
   </style>
@@ -127,7 +137,7 @@
         <span style="font-family:var(--font-sans);font-size:var(--fs-body);color:var(--text-muted)">都是我自己很喜歡的短片。</span>
       </div>
 
-      <div style="position:relative;display:grid;grid-template-columns:1.62fr 1fr;gap:clamp(20px,3.2vw,44px);align-items:start">
+      <div style="position:relative;display:grid;grid-template-columns:1.62fr 1fr;gap:clamp(20px,3.2vw,44px);align-items:start" class="films-grid">
         <!-- Featured player -->
         <div style="position:relative;z-index:1;min-width:0">
           <div style="position:relative;width:100%;aspect-ratio:16/9;background:#000;overflow:hidden">
@@ -191,7 +201,7 @@
     <span style="position:absolute;right:6%;top:14%;font-family:var(--font-sans);font-weight:300;font-size:clamp(100px,16vw,240px);line-height:1;color:var(--ink-050);z-index:0;pointer-events:none">03</span>
 
     <!-- header + opening feature -->
-    <div style="position:relative;z-index:1;display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(16px,2.4vw,32px);align-items:end;margin-bottom:clamp(12px,1.6vw,20px)">
+    <div style="position:relative;z-index:1;display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(16px,2.4vw,32px);align-items:end;margin-bottom:clamp(12px,1.6vw,20px)" class="photo-head">
       <div style="grid-column:span 5;min-width:240px;display:flex;flex-direction:column;gap:8px;padding:4px 0 12px;align-self:start">
         <div style="font-family:var(--font-mono);font-size:calc(var(--fs-micro) * 1.0925);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--text-meta)">[ 03 · Photographs ]</div>
         <div style="font-family:var(--font-mono);font-size:calc(var(--fs-meta) * 1.0925);letter-spacing:var(--ls-mono);color:var(--accent-ink)">Film &amp; digital</div>
@@ -369,7 +379,7 @@
         </div>
 
         <!-- film credits, two columns -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px clamp(28px,4vw,56px);margin:0 0 clamp(44px,6vw,68px)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px clamp(28px,4vw,56px);margin:0 0 clamp(44px,6vw,68px)" class="film-credits">
           <div style="display:grid;grid-template-columns:74px 1fr;gap:14px"><div style="font-family:var(--font-mono);font-weight:700;font-size:12px;letter-spacing:.06em;color:var(--text-strong);line-height:1.55">2022</div><div><div style="font-family:var(--font-mono),var(--font-cjk);font-weight:700;font-size:13px;color:var(--text-strong)">電影《周處除三害》</div><div style="margin-top:3px;font-family:var(--font-mono),var(--font-cjk);font-weight:400;font-size:11.5px;color:var(--text-meta)">製片助理</div></div></div>
           <div style="display:grid;grid-template-columns:74px 1fr;gap:14px"><div style="font-family:var(--font-mono);font-weight:700;font-size:12px;letter-spacing:.06em;color:var(--text-strong);line-height:1.55">2022–<br>2021</div><div><div style="font-family:var(--font-mono),var(--font-cjk);font-weight:700;font-size:13px;color:var(--text-strong)">影集《不良執念清除師》</div><div style="margin-top:3px;font-family:var(--font-mono),var(--font-cjk);font-weight:400;font-size:11.5px;color:var(--text-meta)">製片助理</div></div></div>
           <div style="display:grid;grid-template-columns:74px 1fr;gap:14px"><div style="font-family:var(--font-mono);font-weight:700;font-size:12px;letter-spacing:.06em;color:var(--text-strong);line-height:1.55">2022</div><div><div style="font-family:var(--font-mono),var(--font-cjk);font-weight:700;font-size:13px;color:var(--text-strong)">電影《小曉》</div><div style="margin-top:3px;font-family:var(--font-mono),var(--font-cjk);font-weight:400;font-size:11.5px;color:var(--text-meta)">製片助理</div></div></div>
@@ -395,11 +405,11 @@
 
       <!-- ========== PAGE 02 · ESSAY ========== -->
       <div ref="{{ page1Ref }}" style="display:none">
-      <div style="display:grid;grid-template-columns:1fr 152px;gap:clamp(28px,5vw,64px);align-items:start">
+      <div style="display:grid;grid-template-columns:1fr 152px;gap:clamp(28px,5vw,64px);align-items:start" class="essay-grid">
         
         <div style="min-width:0">
           <div ref="{{ essayRef }}" style="max-width:581px;margin:0 auto;text-align:center">
-            <div style="margin:0;font-family:var(--font-mono),var(--font-cjk);font-weight:300;letter-spacing:.12em;line-height:2.05;color:var(--text-strong);font-size:var(--fs-body)"><p class="p1" style="margin: 0; width: 551px; height: 526px; text-align: justify">&nbsp; &nbsp; 大學時我讀的是廣電系，拍片時選擇的職位是製片組。大學畢業後，我也理所當然地進入了這個圈子。上一份工作是在抓馬文化股份有限公司擔任製作協調。主要是負責公司和劇組之間的行政庶務。一直以來，我都用極度的二分法去區分影像工作。一是負責文本、畫面與核心創作的人，另一種是負責執行影像製作需求的人，也就是製片組。我始終站在執行者的位子，認為自己只擅長完成任務，缺乏獨當一面產出內容的能力。因此，獨立創作對我來說非常遙遠，是個不敢多想的一題。之所以不敢多想，很大一部分源自於骨子裡的沒自信，我羞於將自己的所思所想搬上檯面，總覺得比起那些充滿才華且專業的人，自己產出的東西簡直是所謂的懶覺比雞腿，根本不值一提。<span class="s1"><br><br></span>&nbsp; &nbsp;在<span class="s1">2026</span>春天出發去歐洲前，有一位懂星象的老師告訴我，我旅行期間的星象剛好走九宮，有關高等教育。建議我在出發前準備好相關生命課題，旅行之時可以好好地體驗且思考。當下聽到這個消息我超級興奮，覺得自己的人生是不是要開竅了，非常期待！<br><br>&nbsp; &nbsp; 結果，在歐洲的那三週，我直接將這件事拋諸腦後，玩瘋了！我根本就忘了要好好地跟自己對話，探索和高等教育有關的生命課題。但生活就是如此神奇，宇宙之玄妙始終難以解釋。回國後細品過去三週所見的人事物，豁然開朗的第一件事，居然是發現自己「好像」可以創作了。我突然明白，創作離我一點都不遠，所有我關心和在意的事物，被自己透過各種形式記錄下來後，那就是屬於我的作品了。<span class="s1"><br></span>原來創作並非得要能變現，或是換取滿堂彩的嘉獎，才具有價值。<br><br>&nbsp; &nbsp;這個體悟，想必就是歐洲大地之母送給我的禮物吧。</p></div>
+            <div style="margin:0;font-family:var(--font-mono),var(--font-cjk);font-weight:300;letter-spacing:.12em;line-height:2.05;color:var(--text-strong);font-size:var(--fs-body)"><p class="p1 essay-para" style="margin: 0; width: 551px; height: 526px; text-align: justify">&nbsp; &nbsp; 大學時我讀的是廣電系，拍片時選擇的職位是製片組。大學畢業後，我也理所當然地進入了這個圈子。上一份工作是在抓馬文化股份有限公司擔任製作協調。主要是負責公司和劇組之間的行政庶務。一直以來，我都用極度的二分法去區分影像工作。一是負責文本、畫面與核心創作的人，另一種是負責執行影像製作需求的人，也就是製片組。我始終站在執行者的位子，認為自己只擅長完成任務，缺乏獨當一面產出內容的能力。因此，獨立創作對我來說非常遙遠，是個不敢多想的一題。之所以不敢多想，很大一部分源自於骨子裡的沒自信，我羞於將自己的所思所想搬上檯面，總覺得比起那些充滿才華且專業的人，自己產出的東西簡直是所謂的懶覺比雞腿，根本不值一提。<span class="s1"><br><br></span>&nbsp; &nbsp;在<span class="s1">2026</span>春天出發去歐洲前，有一位懂星象的老師告訴我，我旅行期間的星象剛好走九宮，有關高等教育。建議我在出發前準備好相關生命課題，旅行之時可以好好地體驗且思考。當下聽到這個消息我超級興奮，覺得自己的人生是不是要開竅了，非常期待！<br><br>&nbsp; &nbsp; 結果，在歐洲的那三週，我直接將這件事拋諸腦後，玩瘋了！我根本就忘了要好好地跟自己對話，探索和高等教育有關的生命課題。但生活就是如此神奇，宇宙之玄妙始終難以解釋。回國後細品過去三週所見的人事物，豁然開朗的第一件事，居然是發現自己「好像」可以創作了。我突然明白，創作離我一點都不遠，所有我關心和在意的事物，被自己透過各種形式記錄下來後，那就是屬於我的作品了。<span class="s1"><br></span>原來創作並非得要能變現，或是換取滿堂彩的嘉獎，才具有價值。<br><br>&nbsp; &nbsp;這個體悟，想必就是歐洲大地之母送給我的禮物吧。</p></div>
           </div>
         </div><div style="display:flex;flex-direction:column;gap:14px;margin-top:clamp(20px,4vw,40px)">
           <figure class="photo-tile" style="margin:0"><div class="pt-frame" style="aspect-ratio:1/1"><img src="./dscf7796-mreeu9vy.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div></figure>
