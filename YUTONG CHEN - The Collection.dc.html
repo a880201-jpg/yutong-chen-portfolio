@@ -445,7 +445,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;coffee&quot;,&quot;gray&quot;],&quot;default&quot;:&quot;coffee&quot;,&quot;tsType&quot;:&quot;'coffee'|'gray'&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;grain&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;essayWidth&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:581,&quot;min&quot;:320,&quot;max&quot;:744,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;區塊五 · 第二篇文章&quot;}}">
 class Component extends DCLogic {
-  state = (() => { let v = 'top', w = 0; try { const s = localStorage.getItem('yt_view'); if (s) v = s; const a = localStorage.getItem('yt_word'); if (a != null) w = Number(a) || 0; } catch (_) {} return { activeFilm: 0, dir: 1, tick: 0, activeVideo: 0, playing: false, lbIndex: null, activeWord: w, view: v }; })();
+  state = (() => { let v = 'top', w = 0; try { const validViews = ['top','credits','films','photographs','words','contact']; const h = (location.hash || '').slice(1); if (validViews.includes(h)) { v = h; } else { const s = localStorage.getItem('yt_view'); if (s) v = s; } const a = localStorage.getItem('yt_word'); if (a != null) w = Number(a) || 0; } catch (_) {} return { activeFilm: 0, dir: 1, tick: 0, activeVideo: 0, playing: false, lbIndex: null, activeWord: w, view: v }; })();
   componentDidMount() {
     this.applyTweaks();
     this._syncView();
