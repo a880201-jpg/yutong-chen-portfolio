@@ -434,7 +434,7 @@
       <div style="font-family:var(--font-sans);font-weight:700;letter-spacing:var(--ls-tight);font-size:clamp(32px,6vw,60px);line-height:1.04;color:#0e0e0e">陳宥彤<br>Chen You Tong</div>
       <div style="margin-top:clamp(28px,5vw,48px);font-family:var(--font-mono);font-size:var(--fs-meta);letter-spacing:var(--ls-mono);line-height:2.2;color:#0e0e0e">
         <div><a href="mailto:a880201@gmail.com" style="color:#0e0e0e">a880201@gmail.com</a></div>
-        <div><a href="tel:0920571624" style="color:#0e0e0e">+886 0920 571 624</a></div>
+        <div><a href="tel:0920571624" style="color:#0e0e0e">+886 920 571 624</a></div>
         <div style="margin-top:22px"><a href="#top" onClick="{{ goTop }}" style="color:#0e0e0e;cursor:pointer">back (to) top ↑</a></div>
         <div style="margin-top:22px;color:#7a7a7a">All rights reserved (c) 2026</div>
       </div>
@@ -522,7 +522,7 @@ class Component extends DCLogic {
   componentWillUnmount() { if (this._onKey) window.removeEventListener('keydown', this._onKey); if (this._onPhotoClick) document.removeEventListener('click', this._onPhotoClick); if (this._onResize) window.removeEventListener('resize', this._onResize); if (this.wordsRef) { this.wordsRef.removeEventListener('touchstart', this._onWordTouchStart); this.wordsRef.removeEventListener('touchend', this._onWordTouchEnd); } }
   _closeLb() { this.setState({ lbIndex: null }); }
   _lbGo(d) { const t = this._tilesData || []; if (!t.length) return; this.setState((s) => ({ lbIndex: ((s.lbIndex ?? 0) + d + t.length) % t.length })); }
-  _go(d) { const n = 7; this.setState((s) => ({ activeFilm: ((s.activeFilm ?? 0) + d + n) % n, dir: d < 0 ? -1 : 1, tick: s.tick + 1 })); }
+  _go(d) { const n = 9; this.setState((s) => ({ activeFilm: ((s.activeFilm ?? 0) + d + n) % n, dir: d < 0 ? -1 : 1, tick: s.tick + 1 })); }
   _jump(i) { this.setState((s) => ({ dir: i >= (s.activeFilm ?? 0) ? 1 : -1, activeFilm: i, tick: s.tick + 1 })); }
   _selectVideo(i) { this.setState({ activeVideo: i, playing: true }); }
   _layoutMasonry() {
@@ -629,7 +629,9 @@ class Component extends DCLogic {
       { num: '[04]', title: '不良執念清除師', titleEn: 'Oh No! Here Comes Trouble', role: '製片助理', roleEn: 'Production Assistant', medium: '愛奇藝影集 · iQIYI Series', date: 'Oct 2021 – Feb 2022', poster: 'assets/posters/buliang.jpg', trailer: 'https://youtu.be/89ahKOCSdAY' },
       { num: '[05]', title: '尋找回憶的金木君', titleEn: 'Culture Bureau Project', role: '場景助理', roleEn: 'Location Assistant', medium: '花蓮文化局 · Culture Bureau', date: 'Jul – Aug 2021', poster: 'assets/posters/jinmu.jpg', trailer: 'https://youtu.be/LhEk-A71xCI' },
       { num: '[06]', title: '洞裡的月亮', titleEn: 'TV Film', role: '製片助理', roleEn: 'Production Assistant', medium: '電視電影 · TV Film', date: 'Jul 2021', poster: 'assets/posters/yueliang.jpg', trailer: 'https://youtu.be/tBPgjLg_QDE' },
-      { num: '[07]', title: '國際串流平台影集', titleEn: 'To Be Continued', role: '製作協調', roleEn: 'Production Coordinator', medium: '影集', date: '預計上映時間 2028', poster: 'assets/posters/brand-new-series.png' },
+      { num: '[07]', title: '南國夢', titleEn: 'Southern Dream', role: '製片', roleEn: 'Producer', medium: '屏東電影節短片 · Short Film', date: 'Oct 2020', poster: 'assets/posters/nanguomeng.jpg', trailer: 'https://youtu.be/yAjOq6wz6OU' },
+      { num: '[08]', title: '橙色邊境', titleEn: 'Orange Border', role: '製片', roleEn: 'Producer', medium: '世新大學畢業製作 · Graduation Film', date: 'Jun 2020', poster: 'assets/posters/chengse.png', trailer: 'https://youtu.be/tl-1fptz4wQ' },
+      { num: '[09]', title: '國際串流平台影集', titleEn: 'To Be Continued', role: '製作協調', roleEn: 'Production Coordinator', medium: '影集', date: '預計上映時間 2028', poster: 'assets/posters/brand-new-series.png' },
     ];
     const active = this.state.activeFilm ?? 0;
     const rowBase = {
